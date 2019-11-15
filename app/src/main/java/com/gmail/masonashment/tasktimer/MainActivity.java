@@ -1,5 +1,6 @@
 package com.gmail.masonashment.tasktimer;
 
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -19,7 +20,8 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        String goals = "Working on 'em";
+        AppDatabase appDatabase = AppDatabase.getInstance(this);
+        final SQLiteDatabase db = appDatabase.getReadableDatabase();
 
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
